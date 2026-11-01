@@ -1,0 +1,700 @@
+/* Stereo Angel — cut-and-paste type, xerox grain, ink and paper. */
+:root {
+  --ink: #111110;
+  --paper: #ece9e0;
+  --paper-muted: #d4d0c5;
+  --bg: #151514;
+  --fg: var(--paper);
+  --focus: #c4703f;
+  --max-width: 1060px;
+  --tape: repeating-linear-gradient(92deg, #b8b5a9 0 2px, #cac7ba 2px 4px);
+  --grain:
+    radial-gradient(ellipse, rgba(127, 127, 120, 0.17) 0 0.6px, transparent 0.9px),
+    radial-gradient(ellipse, rgba(127, 127, 120, 0.12) 0 0.8px, transparent 1.2px),
+    repeating-linear-gradient(178deg, transparent 0 19px, rgba(127, 127, 120, 0.06) 20px, transparent 21px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--fg);
+  background-color: var(--bg);
+  background-image: var(--grain);
+  background-size: 5px 7px, 11px 9px, auto;
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.65;
+}
+
+/* Focus is deliberately cleaner than the collage around it. */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 5px;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  color: var(--ink);
+  background: var(--paper);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.site-header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+}
+
+.masthead-line {
+  margin: 0 0 1.75rem;
+  padding: 0.4rem 0;
+  border-top: 2px solid currentColor;
+  border-bottom: 1px dashed currentColor;
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.header-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.site-header h1 {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 6.6rem);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+}
+
+.site-header h1 span {
+  display: table;
+  padding: 0.08em 0.16em 0.13em 0.08em;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: var(--grain);
+  background-size: 5px 7px, 11px 9px, auto;
+  transform: rotate(-3deg);
+  box-shadow: 5px 5px 0 #000;
+}
+
+.site-header h1 span + span {
+  margin: -0.025em 0 0 0.52em;
+  color: var(--paper);
+  background-color: var(--ink);
+  border: 2px solid var(--paper);
+  transform: rotate(2deg);
+  font-style: italic;
+  letter-spacing: -0.045em;
+}
+
+/* A short strip holds the pasted masthead in place. */
+.site-header h1::after {
+  content: '';
+  position: absolute;
+  top: 0.18em;
+  left: -0.18em;
+  width: clamp(48px, 0.9em, 96px);
+  height: clamp(18px, 0.24em, 26px);
+  background: var(--tape);
+  border-inline: 2px dashed #6c6b63;
+  opacity: 0.85;
+  transform: rotate(-45deg);
+  pointer-events: none;
+}
+
+.header-logo {
+  width: clamp(100px, 19vw, 190px);
+  max-width: 100%;
+  height: auto;
+  padding: 0.5rem;
+  background: #fff;
+  filter: url('#logo-dark-red');
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--paper-muted);
+  transform: rotate(5deg);
+}
+
+.tagline {
+  display: table;
+  margin: 2rem 0 0 auto;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid currentColor;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-1deg);
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2.5rem 1rem;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
+}
+
+section {
+  position: relative;
+  min-width: 0;
+}
+
+/* Background-only texture leaves letters, covers and focus outlines intact. */
+.intro,
+.recommendations {
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    var(--grain),
+    linear-gradient(90deg, transparent 49.5%, rgba(0, 0, 0, 0.09) 49.9%, rgba(255, 255, 255, 0.4) 50.1%, transparent 50.6%),
+    linear-gradient(177deg, transparent 66%, rgba(0, 0, 0, 0.06) 66.2%, rgba(255, 255, 255, 0.45) 66.4%, transparent 66.8%);
+  background-size: 5px 7px, 11px 9px, auto, auto, auto;
+  border: 2px solid var(--ink);
+  box-shadow:
+    2px 3px 0 var(--paper-muted),
+    3px 4px 0 var(--ink),
+    6px 7px 0 #000;
+}
+
+.intro {
+  grid-column: 2 / 12;
+  padding: 1.4rem clamp(1rem, 4vw, 2.5rem);
+  border-left: 8px solid var(--ink);
+}
+
+.intro p {
+  max-width: 65ch;
+  margin: 0.8rem 0 0;
+}
+
+/* Torn-paper teeth are separate decorative layers: no clipping of content. */
+.intro::after,
+.recommendations::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: -9px;
+  height: 9px;
+  background: linear-gradient(135deg, var(--paper) 25%, transparent 25%) 0 0 / 13px 9px,
+    linear-gradient(225deg, var(--paper) 25%, transparent 25%) 0 0 / 13px 9px;
+  pointer-events: none;
+}
+
+/* Tape sits in spare margins, not over controls or copy. */
+.intro::before,
+.recommendations::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -12px;
+  right: 9%;
+  width: 90px;
+  height: 24px;
+  background: var(--tape);
+  border-left: 2px dashed #6c6b63;
+  border-right: 2px dashed #6c6b63;
+  opacity: 0.9;
+  transform: rotate(7deg);
+  pointer-events: none;
+}
+
+.recommendations::before {
+  right: auto;
+  left: 12%;
+  width: 76px;
+  transform: rotate(-6deg);
+}
+
+.corner-tape {
+  position: absolute;
+  z-index: 1;
+  bottom: 10px;
+  right: -12px;
+  width: 64px;
+  height: 20px;
+  background: var(--tape);
+  border-inline: 2px dashed #6c6b63;
+  opacity: 0.9;
+  transform: rotate(-45deg);
+  pointer-events: none;
+}
+
+h2 {
+  display: table;
+  max-width: 100%;
+  margin: 0 0 1.3rem;
+  padding: 0.12rem 0.55rem;
+  color: var(--paper);
+  background: var(--ink);
+  font-size: clamp(1.45rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  transform: rotate(-1deg);
+}
+
+.intro h2 {
+  font-size: 1.15rem;
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+.side-label {
+  display: table;
+  margin: 0 0 0.8rem;
+  padding: 0.15rem 0.45rem;
+  border: 2px solid currentColor;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  transform: rotate(1.5deg);
+}
+
+.albums {
+  grid-column: 1 / -1;
+  padding: 1.75rem 0.7rem 2rem;
+  border-top: 5px double var(--paper);
+  border-bottom: 2px dashed var(--paper-muted);
+  background-color: #1c1c1a;
+  background-image:
+    var(--grain),
+    linear-gradient(90deg, transparent 49.7%, rgba(255, 255, 255, 0.08) 50%, rgba(0, 0, 0, 0.3) 50.2%, transparent 50.6%);
+  background-size: 5px 7px, 11px 9px, auto, auto;
+}
+
+.albums h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 0.6rem 3%;
+  color: var(--ink);
+  background-color: var(--paper);
+  box-shadow: 4px 4px 0 #000;
+  transform: rotate(-2deg);
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.album-card {
+  position: relative;
+  min-width: 0;
+  padding: 0.5rem;
+}
+
+.album-card:nth-child(2) {
+  margin-top: 2rem;
+}
+
+.album-card:nth-child(3) {
+  margin-top: 0.75rem;
+}
+
+.spotify-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.spotify-link h3 {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
+
+.spotify-link:hover h3,
+.spotify-link:focus-visible h3 {
+  text-decoration-thickness: 3px;
+  text-decoration-style: double;
+}
+
+.album-link h3 {
+  display: table;
+  max-width: 100%;
+  margin: 0 0 0.5rem;
+  padding: 0.2rem 0.5rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px dashed var(--ink);
+  font-size: 1.2rem;
+  line-height: 1.35;
+  transform: rotate(-1.5deg);
+}
+
+.album-card:nth-child(2) h3 {
+  transform: rotate(1.5deg);
+  text-transform: uppercase;
+}
+
+.album-artist {
+  margin: 0.3rem 0;
+  font-style: italic;
+}
+
+.album-year,
+.album-genre {
+  margin: 0.1rem 0;
+  color: var(--paper-muted);
+  font-size: 0.85rem;
+}
+
+/* Spin is independent of Spotify. Only the record slides; sleeves stay still. */
+.vinyl-frame {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 0.7rem;
+}
+
+.vinyl-record {
+  position: absolute;
+  top: 9%;
+  left: 0;
+  width: 82%;
+  aspect-ratio: 1;
+  transform: translateX(12%);
+  transition: transform 650ms ease;
+  pointer-events: none;
+}
+
+.vinyl-record::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid #aaa79e;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #111 0 2%, #d4d0c5 2.5% 17%, transparent 17.5%),
+    conic-gradient(from 25deg, transparent, rgba(255, 255, 255, 0.22), transparent 28%, transparent 50%, rgba(255, 255, 255, 0.16), transparent 78%),
+    repeating-radial-gradient(circle, #111 0 3px, #393937 4px, #111 5px);
+  animation: vinyl-spin 16s linear infinite;
+}
+
+.album-cover-img {
+  position: absolute;
+  z-index: 1;
+  top: 9%;
+  left: 0;
+  width: 82%;
+  aspect-ratio: 1;
+  display: block;
+  border: 3px solid var(--paper);
+  object-fit: cover;
+  box-shadow: 3px 3px 0 #000;
+}
+
+@keyframes vinyl-spin {
+  to { transform: rotate(360deg); }
+}
+
+.album-card:focus-within .vinyl-record {
+  transform: translateX(20%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .album-card:hover .vinyl-record {
+    transform: translateX(20%);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .vinyl-record {
+    transform: translateX(20%);
+  }
+}
+
+.recommendations {
+  grid-column: 2 / -1;
+  margin-top: -0.75rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  border-top: 7px solid var(--ink);
+}
+
+.recommendations h2 {
+  margin-left: -0.5rem;
+  transform: rotate(1deg);
+}
+
+.recs-desc {
+  max-width: 62ch;
+  margin: 0 0 1.3rem;
+  font-size: 0.95rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0 0 1.75rem;
+  padding: 0.7rem 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px dashed var(--ink);
+}
+
+.filter-btn {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0.5rem 0.85rem;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font: bold 0.9rem Georgia, 'Times New Roman', serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.filter-btn:nth-child(even) {
+  border-style: dashed;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.filter-btn.active {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+/* Pasted track slips, not rounded app cards. Numbering follows each filter. */
+.recs-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 1.5rem;
+  counter-reset: track;
+}
+
+.rec-card {
+  position: relative;
+  min-width: 0;
+  color: var(--ink);
+  background: transparent;
+  border-top: 3px solid currentColor;
+  border-bottom: 1px dashed currentColor;
+  counter-increment: track;
+}
+
+.rec-card::before {
+  content: counter(track, decimal-leading-zero);
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  padding: 0.1rem 0.2rem;
+  border: 1px solid currentColor;
+  font-size: 0.7rem;
+  font-weight: bold;
+  transform: rotate(-5deg);
+  pointer-events: none;
+}
+
+/* Alternate by visible position, including after the genre list is rebuilt. */
+.rec-card:nth-child(even) {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.rec-link {
+  height: 100%;
+  padding: 0.75rem 0.85rem 0.85rem 3rem;
+}
+
+.rec-link:hover,
+.rec-link:focus-visible {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.rec-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+.rec-card p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+.rec-genre {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.05rem 0.3rem;
+  border: 1px solid currentColor;
+  font-size: 0.68rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.recs-empty {
+  font-style: italic;
+}
+
+.site-footer {
+  max-width: var(--max-width);
+  margin: 1rem auto 0;
+  padding: 1rem 2rem 2rem;
+  border-top: 4px double var(--paper-muted);
+  color: var(--paper-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Blank tear-off tabs evoke a handbill without inventing show details. */
+.site-footer::after {
+  content: '';
+  display: block;
+  height: 30px;
+  margin-top: 1.25rem;
+  border-top: 1px dashed var(--paper-muted);
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 31px,
+    var(--paper-muted) 31px 32px,
+    transparent 32px 64px
+  );
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Collage offsets belong in whitespace; mobile uses a single reading column. */
+@media (min-width: 801px) {
+  .rec-card:nth-child(even) {
+    transform: translateY(0.55rem);
+  }
+}
+
+@media (max-width: 800px) {
+  .header-logo {
+    width: 115px;
+  }
+
+  .album-grid {
+    gap: 0.65rem;
+  }
+
+  .intro,
+  .recommendations {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 540px) {
+  .site-header {
+    padding: 1.25rem 1.25rem 2.5rem;
+  }
+
+  .masthead-line {
+    font-size: 0.6rem;
+    letter-spacing: 0.07em;
+  }
+
+  .header-row {
+    gap: 1rem;
+  }
+
+  .site-header h1 {
+    font-size: clamp(2.7rem, 11vw, 3.7rem);
+  }
+
+  .header-logo {
+    width: 78px;
+    padding: 0.2rem;
+  }
+
+  .tagline {
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+  }
+
+  main {
+    padding: 0 1rem 2rem;
+    gap: 2.5rem 0;
+  }
+
+  .albums {
+    padding-inline: 0;
+  }
+
+  .album-grid,
+  .recs-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .album-card {
+    width: 100%;
+    max-width: 360px;
+    margin-inline: auto;
+    padding-inline: 0.5rem;
+  }
+
+  .album-card:nth-child(n) {
+    margin-top: 0;
+  }
+
+  .recommendations h2 {
+    margin-left: 0;
+    transform: none;
+  }
+
+  .filter-btn {
+    flex: 1 1 calc(50% - 0.65rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vinyl-record {
+    transition: none;
+  }
+
+  .album-card .vinyl-record {
+    transform: translateX(20%);
+  }
+
+  .vinyl-record::before {
+    animation: none;
+  }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stereo Angel — Music Favorites</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%231a1a1c'/%3E%3Ctext x='8' y='12' font-size='10' text-anchor='middle' fill='%23c4703f'%3E%E2%99%AA%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to music</a>
+  <!-- SVG filter for grunge text distortion -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="logo-dark-red" color-interpolation-filters="sRGB">
+        <!-- Deepen red line art; each row sums to 1 so white stays white. -->
+        <feColorMatrix type="matrix" values="0.35 0.65 0 0 0 -0.65 1.65 0 0 0 -0.45 0 1.45 0 0 0 0 0 1 0"/>
+      </filter>
+      <filter id="grunge-filter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="7" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <header class="site-header">
+    <p class="masthead-line" aria-hidden="true">Independent listening / cut, copy, repeat</p>
+    <div class="header-row">
+      <h1><span>Stereo_</span><span>Angel</span></h1>
+      <img class="header-logo" src="logo.png" alt="Stereo_Angel logo - winged headphones">
+    </div>
+    <p class="tagline">Indie / Grunge / Dream Pop</p>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="intro" aria-labelledby="intro-heading">
+      <h2 id="intro-heading">About this page</h2>
+      <p>I'm a DS219 student learning to build with a coding agent. This page collects the artists and albums I keep coming back to.</p>
+    </section>
+
+    <section class="albums" aria-labelledby="albums-heading">
+      <p class="side-label" aria-hidden="true">SIDE A / THE COLLECTION</p>
+      <h2 id="albums-heading">Favorite Albums</h2>
+      <div class="album-grid">
+        <article class="album-card">
+          <a class="spotify-link album-link" href="https://open.spotify.com/album/6Pp6qGEywDdofgFC1oFbSH" target="_blank" rel="noopener noreferrer" aria-label="Listen to Punisher by Phoebe Bridgers on Spotify (opens in a new tab)">
+            <div class="vinyl-frame">
+              <span class="vinyl-record" aria-hidden="true"></span>
+              <img class="album-cover-img" id="cover-indie" src="https://upload.wikimedia.org/wikipedia/en/2/23/Phoebe_Bridgers_Punisher_%282020%29.png" alt="Punisher by Phoebe Bridgers album cover: Bridgers in a skeleton suit beneath a red night sky">
+            </div>
+            <h3>Punisher</h3>
+          </a>
+          <p class="album-artist">Phoebe Bridgers</p>
+          <p class="album-year">2020</p>
+          <p class="album-genre">Indie / Folk Rock</p>
+        </article>
+
+        <article class="album-card">
+          <a class="spotify-link album-link" href="https://open.spotify.com/album/2Rwf2nPYZQ9aIe4QXACTC7" target="_blank" rel="noopener noreferrer" aria-label="Listen to Live Through This by Hole on Spotify (opens in a new tab)">
+            <div class="vinyl-frame">
+              <span class="vinyl-record" aria-hidden="true"></span>
+              <img class="album-cover-img" id="cover-grunge" src="https://upload.wikimedia.org/wikipedia/en/c/c5/Hole_-_Live_Through_This.png" alt="Live Through This by Hole album cover: a smiling beauty queen wearing a tiara and holding flowers">
+            </div>
+            <h3>Live Through This</h3>
+          </a>
+          <p class="album-artist">Hole</p>
+          <p class="album-year">1994</p>
+          <p class="album-genre">Grunge / Punk</p>
+        </article>
+
+        <article class="album-card">
+          <a class="spotify-link album-link" href="https://open.spotify.com/album/2e3doCyb0qn2JeKLsh2Xbo" target="_blank" rel="noopener noreferrer" aria-label="Listen to Ultraviolence by Lana Del Rey on Spotify (opens in a new tab)">
+            <div class="vinyl-frame">
+              <span class="vinyl-record" aria-hidden="true"></span>
+              <img class="album-cover-img" id="cover-dreampop" src="https://upload.wikimedia.org/wikipedia/en/6/6a/UltraviolenceLDR.png" alt="Ultraviolence by Lana Del Rey album cover: a black-and-white photograph of Del Rey beside a car">
+            </div>
+            <h3>Ultraviolence</h3>
+          </a>
+          <p class="album-artist">Lana Del Rey</p>
+          <p class="album-year">2014</p>
+          <p class="album-genre">Dream Pop / Baroque Pop</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="recommendations" aria-labelledby="recs-heading">
+      <span class="corner-tape" aria-hidden="true"></span>
+      <p class="side-label" aria-hidden="true">SIDE B / ON REPEAT</p>
+      <h2 id="recs-heading">Music Recommendations</h2>
+      <p class="recs-desc">
+        Filter by genre to find your next obsession. Use Tab to reach the buttons
+        and Enter or Space to select one.
+      </p>
+
+      <div class="filter-group" role="group" aria-label="Filter recommendations by genre">
+        <button class="filter-btn active" data-genre="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-genre="indie" aria-pressed="false">Indie</button>
+        <button class="filter-btn" data-genre="grunge" aria-pressed="false">Grunge</button>
+        <button class="filter-btn" data-genre="dream-pop" aria-pressed="false">Dream Pop</button>
+      </div>
+
+      <div id="recs-list" class="recs-list" aria-live="polite">
+        <!-- Recommendations rendered by script.js -->
+      </div>
+      <p id="recs-empty" class="recs-empty" hidden>No recommendations for this genre yet.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built with OpenCode for DS219 · Served locally on localhost</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
