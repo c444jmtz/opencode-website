@@ -15,6 +15,12 @@
       <filter id="logo-dark-red" color-interpolation-filters="sRGB">
         <!-- Deepen red line art; each row sums to 1 so white stays white. -->
         <feColorMatrix type="matrix" values="0.35 0.65 0 0 0 -0.65 1.65 0 0 0 -0.45 0 1.45 0 0 0 0 0 1 0"/>
+        <!-- Match the logo's white pixels to the Stereo paper color (#ece9e0). -->
+        <feComponentTransfer>
+          <feFuncR type="linear" slope="0.9254901961"/>
+          <feFuncG type="linear" slope="0.9137254902"/>
+          <feFuncB type="linear" slope="0.8784313725"/>
+        </feComponentTransfer>
       </filter>
       <filter id="grunge-filter">
         <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="7" result="noise"/>
@@ -24,7 +30,7 @@
   </svg>
 
   <header class="site-header">
-    <p class="masthead-line" aria-hidden="true">Independent listening / cut, copy, repeat</p>
+    <div class="masthead-line" aria-hidden="true"></div>
     <div class="header-row">
       <h1><span>Stereo_</span><span>Angel</span></h1>
       <img class="header-logo" src="logo.png" alt="Stereo_Angel logo - winged headphones">
@@ -88,8 +94,7 @@
       <p class="side-label" aria-hidden="true">SIDE B / ON REPEAT</p>
       <h2 id="recs-heading">Music Recommendations</h2>
       <p class="recs-desc">
-        Filter by genre to find your next obsession. Use Tab to reach the buttons
-        and Enter or Space to select one.
+        Some genres I enjoy! Click any link to be taken to Spotify.
       </p>
 
       <div class="filter-group" role="group" aria-label="Filter recommendations by genre">

@@ -64,13 +64,12 @@ body {
 
 .masthead-line {
   margin: 0 0 1.75rem;
-  padding: 0.4rem 0;
-  border-top: 2px solid currentColor;
-  border-bottom: 1px dashed currentColor;
-  font-size: 0.72rem;
-  font-weight: bold;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  height: 56px;
+  /* Original scroll-and-leaf ornament, repeated without external image files. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 56'%3E%3Cg fill='none' stroke='white' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M0 48C24 54 64 54 90 38C116 54 156 54 180 48M90 42V19M88 38C67 11 34 5 18 17C1 30 12 48 29 43C44 38 37 23 28 28C22 32 28 37 31 33M92 38C113 11 146 5 162 17C179 30 168 48 151 43C136 38 143 23 152 28C158 32 152 37 149 33'/%3E%3C/g%3E%3Cg fill='white'%3E%3Cpath d='M90 25C78 15 85 7 90 2C95 7 102 15 90 25ZM84 30C61 25 58 9 47 7C67 3 81 14 84 30ZM96 30C119 25 122 9 133 7C113 3 99 14 96 30ZM71 33C59 38 48 33 45 25C56 24 64 27 71 33ZM109 33C121 38 132 33 135 25C124 24 116 27 109 33ZM90 45L96 51L90 56L84 51Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 180px 56px;
 }
 
 .header-row {
@@ -627,8 +626,8 @@ h2 {
   }
 
   .masthead-line {
-    font-size: 0.6rem;
-    letter-spacing: 0.07em;
+    height: 44px;
+    background-size: 144px 44px;
   }
 
   .header-row {
